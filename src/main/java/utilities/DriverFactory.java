@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.time.Duration;
+
 public class DriverFactory {
 
     public static WebDriver driver;
@@ -27,11 +29,11 @@ public class DriverFactory {
     }
 
     protected static void switchBrowser() {
-
         System.setProperty("webdriver.http.factory", "jdk-http-client");
         WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.navigate().to("https://www.obilet.com/");
     }
 }

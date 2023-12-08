@@ -14,7 +14,6 @@ public class MainStep {
 
     @Before
     public static void tearUp(){
-
         DriverFactory.getDriver();
         mainPage = new MainPage();
     }
